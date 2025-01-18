@@ -1,14 +1,8 @@
 
 import requests
 from bs4 import BeautifulSoup
-import re
-
 from textblob import TextBlob
-
-import pprint
-
 from googleapiclient.discovery import build
-import json
 
 my_api_key = "AIzaSyAYIJYkb2JhuZ6wwCPYZSJJZkmQNvbQ4OM" #The API_KEY you acquired
 my_cse_id = "17b679dc5a5aa4441" #The search-engine-ID you created
@@ -54,16 +48,21 @@ def get_info(q: str, number: int) -> list[dict]:
         snippets.append(result['snippet'])
     
     data = []
-    score = []
+    scores = []
     status = []
     for url in urls:
         url_data = getdata(url)
         data.append(url_data)
-        score.append(get_score(url_data))
+        scores.append(get_score(url_data))
         status.append(get_status(url_data))
+    
+    result = []
+    for i in range(len(data)):
+        result.append({"title":titles[i],"url":urls[i],"snippet":snippets[i],"score":scores[i],"status":status[i]})
+    return result
 
 if __name__ == "__main__":
-    print(get_info('"hello"', 2))
+    print(get_info('"trump"', 2))
     
     
 
