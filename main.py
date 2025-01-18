@@ -62,18 +62,21 @@ class SearchEngine:
     def search(self):
         """Perform the search."""
         scraper = WebScraper(self.query)
-        self.results = scraper.fetch_results()
+        initial_results = scraper.fetch_results()
+        
+        # Take the top 3 initial results
+        top_3_results = initial_results[:3]
 
-        # Fetch content for each result
-        for result in self.results:
+        # Fetch content for the top 3 results and analyze sentiment
+        for result in top_3_results:
             scraper.fetch_content(result)
+            result.analyze_sentiment()
 
-        # Analyze sentiment
-        SentimentAnalyzer.analyze_results(self.results)
+        # Rank the top 3 results by sentiment
+        top_3_results.sort(key=lambda x: x.sentiment, reverse=True)
 
-        # Rank results by sentiment
-        self.results.sort(key=lambda x: x.sentiment, reverse=True)
+        self.results = top_3_results
 
     def get_results(self):
         """Return search results."""
-        return [{"title": r.title, "link": r.link, "sentiment": r.sentiment} for r in self.results]
+        return self.results
