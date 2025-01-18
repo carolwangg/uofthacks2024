@@ -7,31 +7,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <!-- Navbar -->
-    <nav>
-        <div class="nav-container">
-            <h1 class="site-title">Reverse Search Engine</h1>
-            <button id="searchButtonNav" class="search-toggle-btn">🔍</button>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#">Reverse Searcher</a>
         </div>
     </nav>
 
-    <div class="image-container">
-        <img src="images/galaxy.jpg" alt="Image">
-        <div class="text-overlay">Didn't Receive the Results you Expected?</div>
-    </div>
-
-    <section>
-         <!-- Search Bar with Dynamic Effect -->
-    <div class="search-container">
-        <input type="text" id="searchQuery" placeholder="Start typing...">
-        <button id="searchButton">Search</button>
-    </div>
-
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Reverse Searcher</h1>
+            <p>Find what humans really think</p>
+            <div class="search-container">
+                <input type="text" id="searchQuery" placeholder="Start typing...">
+                <button id="searchButton">Search</button>
+            </div>
+        </div>
     </section>
 
-   
-    <!-- Search Results Section -->
     <div id="results" class="results-container">
         <!-- Results will be dynamically inserted here -->
     </div>
