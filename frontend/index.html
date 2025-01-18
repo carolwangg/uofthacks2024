@@ -3,23 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reverse Search Engine: Human Perspective</title>
+    <title>Feeltr.us</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">
-            <a href="#">Reverse Searcher</a>
+            <a href="#">Feeltr</a>
         </div>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Reverse Searcher</h1>
-            <p>Find what humans really think</p>
+            <h1>Feeltr</h1>
+            <p>Feel the Search, Not Just the Clicks</p>
             <div class="search-container">
                 <input type="text" id="searchQuery" placeholder="Start typing...">
-                <button id="searchButton">Search</button>
+                <button id="searchButton">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <select id="sortFilter">
+                    <option value="" disabled selected>Filter by</option>
+                    <option value="sentiment">Sort by Sentiment</option>
+                    <option value="subjectivity">Sort by Subjectivity</option>
+                </select>
             </div>
         </div>
     </section>
