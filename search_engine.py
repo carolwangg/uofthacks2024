@@ -1,6 +1,7 @@
 from textblob import TextBlob
-import requests
 from bs4 import BeautifulSoup
+from test import SentimentAnalyzer
+from test import WebScraper
 
 class SearchEngine:
     """Coordinate the search and ranking process."""
