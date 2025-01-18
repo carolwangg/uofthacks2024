@@ -1,6 +1,6 @@
 from textblob import TextBlob
 import requests
-from bs4 import BeautifulSoup
+from lxml import html
 
 class SearchResult:
     """Represents a single search result."""
@@ -27,12 +27,13 @@ class WebScraper:
         search_url = f"https://www.google.com/search?q={self.query}"
         headers = {"User-Agent": "Mozilla/5.0"}
         response = requests.get(search_url, headers=headers)
-        soup = BeautifulSoup(response.text, "html.parser")
+        tree = html.fromstring(response.text)
+        result_elements = tree.xpath('//div[@class="BNeawe vvjwJb AP7Wnd"]')
 
         results = []
-        for g in soup.find_all('div', class_='BNeawe vvjwJb AP7Wnd'):
-            title = g.get_text()
-            link = g.find_parent('a')['href']
+        for element in result_elements:
+            title = element.text_content()
+            link = element.xpath('./ancestor::a/@href')[0]
             results.append(SearchResult(title, link, None))  # Content will be fetched later
         return results
 

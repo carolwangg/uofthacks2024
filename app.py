@@ -8,17 +8,12 @@ def home():
 
 @app.route('/search', methods=['POST'])
 def search():
+    print("Search route hit!")
     query = request.form['query']
+    print(f"Search query: {query}")
     search_engine = SearchEngine(query)
     search_engine.search()
     results = search_engine.get_results()
-    
-    # Fetch content and analyze sentiment for all results
-    scraper = WebScraper(query)
-    for result in results:
-        scraper.fetch_content(result)
-        result.analyze_sentiment()
-    
     print("Search Results:", results)
     return jsonify({'results': [vars(res) for res in results], 'query': query})
 
