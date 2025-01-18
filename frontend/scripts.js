@@ -1,44 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Sample search results data, replace with actual data later 
-    const searchResults = [
-        {
-            "url": "https://www.nytimes.com/2025/01/17/opinion/marc-andreessen-trump-silicon-valley.html",
-            "title": "Opinion | How Democrats Drove Silicon Valley Into Trump's Arms ...",
-            "score": [0.0, 0.0],
-            "snippet": "1 day ago ... How Democrats Drove Silicon Valley Into Trump's Arms. Marc Andreessen explains the newest faction of conservatism. Jan. 17, 2025.",
-            "status": false
-        },
-        {
-            "url": "https://www.fmprc.gov.cn/eng/xw/zyxw/202501/t20250117_11538172.html",
-            "title": "President Xi Jinping Speaks with U.S. President-Elect Donald J ...",
-            "score": [0.2387657058388766, 0.4471182273011541],
-            "snippet": "1 day ago ... President Xi congratulated Trump on his reelection as President of the United States. President Xi noted that they both attach great importance...",
-            "status": true
-        },
-        {
-            "url": "https://www.nytimes.com/interactive/2025/01/17/us/trump-president-reaction.html",
-            "title": "Readers Share Their Inner Thoughts Ahead of Trump's Second ...",
-            "score": [0.0996332972582973, 0.47531836219336204],
-            "snippet": "20 hours ago ... The Inner Thoughts of a Nation Heading Into the Next Trump Era. By The New York Times. Jan. 17, 2025.",
-            "status": true
-        },
-        {
-            "url": "https://www.aol.com/trump-promised-mass-deportations-one-110000027.html",
-            "title": "How Trump could supercharge the deportation pipeline | The Texas ...",
-            "score": [0.02319772064670024, 0.37414745118826737],
-            "snippet": "1 day ago ... Trump promised mass deportations. Here's one way they could quietly ... Trump hasn't elaborated on his plan, but immigration attorneys...",
-            "status": true
-        },
-        {
-            "url": "https://www.cnn.com/2025/01/17/politics/inauguration-moving-indoors-cold-weather/index.html",
-            "title": "Trump's inauguration to be moved indoors | CNN Politics",
-            "score": [-0.033138435638435645, 0.4696169571169571],
-            "snippet": "18 hours ago ... President-elect Donald Trump's inauguration will be moved indoors, he announced Friday, due to dangerously cold temperatures projected in...",
-            "status": true
-        }
-    ];
-
     // Function to sort results
     function sortResults(results, sortBy) {
         //sort by sentiments
@@ -73,6 +34,17 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("Please enter a search term.");
             return;
         }
+
+          //GET REQUEST 
+          url = `../search?q=${query}`;
+          fetch(url)
+          .then(response => response.json())
+          .then(data =>{
+              searchResults = data
+              console.log(searchResults)
+          .catch(error => console.error('Error fetching searchResults:',error));
+          });
+          //GET REQUEST
 
         // Filter results
         currentResults = searchResults.filter(result => {
@@ -149,4 +121,44 @@ document.addEventListener('DOMContentLoaded', function() {
             block: 'start'
         });
     }
+
+    // Handle info popup
+    const infoBtn = document.getElementById('infoBtn');
+    const infoPopup = document.getElementById('infoPopup');
+    const closeBtn = document.querySelector('.close-btn');
+
+    // Add console logs to debug
+    infoBtn.addEventListener('click', () => {
+        console.log('Info button clicked');
+        infoPopup.classList.add('show');
+        console.log('Added show class');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        console.log('Close button clicked');
+        infoPopup.classList.remove('show');
+    });
+
+    // Close popup when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!infoPopup.contains(e.target) && !infoBtn.contains(e.target)) {
+            infoPopup.classList.remove('show');
+        }
+    });
+
+    // Add this with your other event listeners
+    const howItWorksBtn = document.getElementById('howItWorksBtn');
+    const howItWorksDropdown = document.getElementById('howItWorksDropdown');
+
+    howItWorksBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        howItWorksDropdown.classList.toggle('show');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!howItWorksBtn.contains(e.target) && !howItWorksDropdown.contains(e.target)) {
+            howItWorksDropdown.classList.remove('show');
+        }
+    });
 });

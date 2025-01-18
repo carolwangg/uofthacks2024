@@ -1,0 +1,5 @@
+dist
+.parcel-cache
+.venv
+node_modules
+__pycache__

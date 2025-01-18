@@ -10,13 +10,40 @@
 <body>
     <nav class="navbar">
         <div class="logo">
-            <a href="#">Feeltr</a>
+            <a href="#">
+                <img src="images/cat.png" alt="Cat Logo" class="logo-img">
+                Feeltr
+            </a>
+        </div>
+        <div class="nav-right">
+            <button id="howItWorksBtn" class="how-it-works-btn">
+                How it Works
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div id="howItWorksDropdown" class="dropdown-content">
+                <h3>How Feeltr Works</h3>
+                <div class="dropdown-section">
+                    <h4><i class="fa-solid fa-magnifying-glass"></i> Search</h4>
+                    <p>Enter any topic to find relevant articles and news.</p>
+                </div>
+                <div class="dropdown-section">
+                    <h4><i class="fa-solid fa-heart"></i> Sentiment Analysis</h4>
+                    <p>We analyze each article's emotional tone from negative to positive.</p>
+                </div>
+                <div class="dropdown-section">
+                    <h4><i class="fa-solid fa-scale-balanced"></i> Subjectivity Check</h4>
+                    <p>See how objective or opinion-based each article is.</p>
+                </div>
+            </div>
         </div>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Feeltr</h1>
+            <h1>
+                <img src="images/cat.png" alt="Cat Logo" class="title-img">
+                Feeltr
+            </h1>
             <p>Feel the Search, Not Just the Clicks</p>
             <div class="search-container">
                 <input type="text" id="searchQuery" placeholder="Start typing...">
@@ -34,6 +61,26 @@
 
     <div id="results" class="results-container">
         <!-- Results will be dynamically inserted here -->
+    </div>
+
+    <div class="info-button">
+        <button id="infoBtn" class="info-btn">
+            <i class="fa-solid fa-circle-info"></i>
+        </button>
+    </div>
+
+    <div id="infoPopup" class="info-popup">
+        <div class="popup-content">
+            <h3>How Scoring Works</h3>
+            <div class="popup-text">
+                <p><strong>Sentiment Score:</strong> Measures how positive or negative the content is (0% to 100%)</p>
+                <br>
+                <p><strong>Subjectivity Score:</strong> Measures how objective or subjective the content is (0% to 100%)</p>
+            </div>
+            <button class="close-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
     </div>
 
     <footer>
