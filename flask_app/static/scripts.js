@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return results.sort((a, b) => {
                 const sentimentA = Math.round((a.score[0] + 1) * 50);
                 const sentimentB = Math.round((b.score[0] + 1) * 50);
-                return sentimentB - sentimentA;
+                return sentimentA - sentimentB;
             });
 
             //sort by subjectivity
