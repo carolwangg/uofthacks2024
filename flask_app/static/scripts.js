@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function sortResults(results, sortBy) {
         //sort by sentiments
         if (sortBy === 'sentiment') {
-            return results.sort((b,a) => {
+            return results.sort((a,b) => {
                 const sentimentA = Math.round((a.score[0] + 1) * 50);
                 const sentimentB = Math.round((b.score[0] + 1) * 50);
                 return sentimentA - sentimentB;
