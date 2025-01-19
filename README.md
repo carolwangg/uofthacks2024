@@ -8,5 +8,6 @@ Instead of ranking results based on popularity, interactions, or SEO tactics, Fe
 With Feeltr, we aim to create a search experience that’s aligned with human needs—providing clarity, positivity, and relevance every time you search.
 
 ## Tech used:
-Python (Flask, Google API, Custom Search JSON API, BeautifulSoup 4, Textblob) for backend 
+Python (Flask, Google API, Custom Search JSON API, BeautifulSoup 4, Textblob) for backend;
+
 Javascript, HTML/CSS for frontend
