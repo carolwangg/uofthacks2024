@@ -4,17 +4,19 @@ from bs4 import BeautifulSoup
 from textblob import TextBlob
 from textblob.sentiments import NaiveBayesAnalyzer
 from googleapiclient.discovery import build
+# import selenium.webdriver as webdriver
 
 # my_api_key = "AIzaSyBz53R95HLj1-EFBiDpTn1TD4xCjwDoixY"
 # my_api_key = "AIzaSyAYIJYkb2JhuZ6wwCPYZSJJZkmQNvbQ4OM" #The API_KEY you acquired
 
-my_api_key = "AIzaSyARCsFukjY_JTBbiFsCG2NVjuBIXF56M-w"
+# my_api_key = "AIzaSyARCsFukjY_JTBbiFsCG2NVjuBIXF56M-w"
+my_api_key ="AIzaSyAVQUFUt2fVXjjqqkNuT73I2qAK_CPt864"
 my_cse_id = "17b679dc5a5aa4441" #The search-engine-ID you created
 
 
 def google_search(search_term, api_key, cse_id, **kwargs):
     service = build("customsearch", "v1", developerKey=api_key)
-    res = service.cse().list(q=search_term, fileType="", cx=cse_id, **kwargs).execute()
+    res = service.cse().list(q=search_term, fileType="html", cx=cse_id, **kwargs).execute()
     return res['items']
 
 
@@ -22,13 +24,16 @@ def getdata(session, url: str):
     data = ""
     try:
         htmldata = requests.get(url).text
-        htmldata[:500]
+        htmldata[:1000]
+        #driver = webdriver.Firefox()
+        #driver.get(url)
     except requests.exceptions.RequestException as e:  # This is the correct syntax
         return ""
         # raise Exception(e)
     except requests.exceptions.Timeout as e:
         return ""
         # raise Exception("Timed out!")
+    #soup = BeautifulSoup(driver.page_source)  
     soup = BeautifulSoup(htmldata, 'html.parser')  
     data = " "
     for pText in soup.find_all("p"):  
@@ -85,5 +90,5 @@ def get_info(q: str, number: int) -> list[dict]:
 
 if __name__ == "__main__":
     # test()
-    print(get_info('"donald trump"', 5))
+    print(get_info('"Taylor Swift"', 5))
     
