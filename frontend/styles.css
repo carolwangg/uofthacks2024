@@ -9,8 +9,7 @@
 body {
     font-family: sans-serif;
     color: #333;
-    height: 100vh; /* Ensure the gradient covers the full height of the screen */
-
+    height: 100vh;
 }
 
 .navbar {
@@ -19,9 +18,7 @@ body {
     align-items: center;
     padding: 1.5rem 5%;
     background-color: white;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 1001;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .logo a {
@@ -511,5 +508,20 @@ footer {
     color: #666;
     font-size: 0.9rem;
     line-height: 1.4;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 40px auto;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.loading-spinner i {
+    font-size: 2rem;
 }
 

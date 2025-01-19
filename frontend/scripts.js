@@ -26,37 +26,47 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle search button click
     document.getElementById('searchButton').addEventListener('click', function(event) {
         event.preventDefault();
-        //get search query and filter results (trim and lower)
         const query = document.getElementById('searchQuery').value.trim().toLowerCase();
         
-        //check if search query is empty
         if (query === '') {
             alert("Please enter a search term.");
             return;
         }
 
-          //GET REQUEST 
-          url = `../search?q=${query}`;
-          fetch(url)
-          .then(response => response.json())
-          .then(data =>{
-              searchResults = data
-              console.log(searchResults)
-          .catch(error => console.error('Error fetching searchResults:',error));
-          });
-          //GET REQUEST
+        // Show loading spinner
+        document.getElementById('loadingSpinner').style.display = 'flex';
+        // Hide previous results if any
+        document.getElementById('results').style.display = 'none';
 
-        // Filter results
-        currentResults = searchResults.filter(result => {
-            return result.status && (
-                result.title.toLowerCase().includes(query) ||
-                result.snippet.toLowerCase().includes(query)
-            );
-        });
+        //GET REQUEST 
+        url = `../search?q=${query}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                searchResults = data;
+                console.log(searchResults);
+                // Hide spinner
+                document.getElementById('loadingSpinner').style.display = 'none';
+                document.getElementById('results').style.display = 'block';
+                
+                // Filter results
+                currentResults = searchResults.filter(result => {
+                    return result.status && (
+                        result.title.toLowerCase().includes(query) ||
+                        result.snippet.toLowerCase().includes(query)
+                    );
+                });
 
-        // Display with current sort option
-        const sortBy = document.getElementById('sortFilter').value;
-        displayResults(currentResults, sortBy, query);
+                // Display with current sort option
+                const sortBy = document.getElementById('sortFilter').value;
+                displayResults(currentResults, sortBy, query);
+            })
+            .catch(error => {
+                console.error('Error fetching searchResults:', error);
+                // Hide spinner on error
+                document.getElementById('loadingSpinner').style.display = 'none';
+                document.getElementById('results').style.display = 'block';
+            });
     });
 
     // Handle sort filter changes
