@@ -16,7 +16,7 @@ my_cse_id = "17b679dc5a5aa4441" #The search-engine-ID you created
 
 def google_search(search_term, api_key, cse_id, **kwargs):
     service = build("customsearch", "v1", developerKey=api_key)
-    res = service.cse().list(q=search_term, fileType="html", cx=cse_id, **kwargs).execute()
+    res = service.cse().list(q=search_term, fileType="", cx=cse_id, **kwargs).execute()
     return res['items']
 
 

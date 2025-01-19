@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, after_this_request
-from flask_app.main2 import get_info
+from main import get_info
 
 app = Flask(__name__)
 
