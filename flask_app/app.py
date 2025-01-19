@@ -15,7 +15,7 @@ def search():
     if not request.args.get('q'):
         return jsonify("no data inputted!!")
     else:
-        data = get_info(request.args.get('q'), 5)
+        data = get_info(request.args.get('q'), 6)
         return jsonify(data)
 
 if __name__ == "__main__":

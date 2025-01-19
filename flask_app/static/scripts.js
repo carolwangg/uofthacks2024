@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return results.sort((a,b) => {
                 const sentimentA = Math.round((a.score[0] + 1) * 50);
                 const sentimentB = Math.round((b.score[0] + 1) * 50);
-                return sentimentA - sentimentB;
+                return sentimentB - sentimentA;
             });
 
             //sort by subjectivity
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return results.sort((a, b) => {
                 const subjectivityA = Math.round(a.score[1] * 100);
                 const subjectivityB = Math.round(b.score[1] * 100);
-                return subjectivityB - subjectivityA;
+                return subjectivityA - subjectivityB;
             });
         }
         return results;
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="snippet">${result.snippet}</p>
                 <div class="scores-container">
                     <div class="sentiment-score ${sentimentClass}">
-                        <span class="score-label">Sentiment:</span>
+                        <span class="score-label">Positivity:</span>
                         <span class="score-value">${sentimentPercent}%</span>
                     </div>
                     <div class="subjectivity-score">
