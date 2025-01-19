@@ -13,21 +13,62 @@ body {
 
 }
 
-/* Navbar Styling */
-nav {
-    position: sticky;
-    top: 0;
-    background-color: #fff;
-    padding:15px 10px;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.nav-container {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 1.5rem 5%;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+.hero {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    color: white;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
 }
 
 .site-title {
@@ -43,7 +84,7 @@ nav {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 400px; /* Set the height of the container */
+    height: 300px; /* Set the height of the container */
 }
 
 /* Styling for the image */
@@ -75,14 +116,16 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #4CAF50, #81C784); /* Gradient from green to light green */
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
     padding: 40px 20px;
+    padding-top: 50px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 500px; /* Control the width */
     margin: 0 auto; /* Center the search bar container */
 }
+
 /* Search Bar Section */
 #searchForm {
     display: flex;
@@ -116,7 +159,7 @@ nav {
     padding: 10px 20px;
     margin-left: 10px;
     font-size: 1.2em;
-    background-color: #4CAF50;
+    background: linear-gradient(135deg, #2e2f97 0%, #6615b1 100%);
     color: white;
     border: none;
     border-radius: 25px;
@@ -166,7 +209,7 @@ footer {
     padding: 10px;
     background-color: #333;
     color: white;
-    position: fixed;
+    position: bottom;
     width: 100%;
     bottom: 0;
 }
