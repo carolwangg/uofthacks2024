@@ -1,4 +1,4 @@
-# uofthacks
+# Feeltr for UoftHacks 12
 Feeltr (Feel + Filter) 
 
 https://feeltr.onrender.com/static/index.html 
