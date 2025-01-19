@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Search{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="GET"
+      action="{{ url_for('search') }}">
+    <input type="text" name="q" placeholder="Search">
+    <button type="submit">submit</button>
+</form>
+
+{% endblock %}

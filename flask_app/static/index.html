@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feeltr.us</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#">
+                <img src="images/cat.png" alt="Cat Logo" class="logo-img">Feeltr</a>
+        </div>
+        <div class="nav-right">
+            <button id="howItWorksBtn" class="how-it-works-btn">
+                How it Works
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div id="howItWorksDropdown" class="dropdown-content">
+                <h3>How Feeltr Works</h3>
+                <div class="dropdown-section">
+                    <h4><i class="fa-solid fa-magnifying-glass"></i> Search</h4>
+                    <p>Enter any topic to find relevant articles and news.</p>
+                </div>
+                <div class="dropdown-section">
+                    <h4><i class="fa-solid fa-heart"></i> Sentiment Analysis</h4>
+                    <p>We analyze each article's emotional tone from negative to positive.</p>
+                </div>
+                <div class="dropdown-section">
+                    <h4><i class="fa-solid fa-scale-balanced"></i> Subjectivity Check</h4>
+                    <p>See how objective or opinion-based each article is.</p>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                <img src="images/cat.png" alt="Cat Logo" class="title-img">
+                Feeltr
+            </h1>
+            <p>Feel the Search, Not Just the Clicks</p>
+            <div class="search-container">
+                <input type="text" id="searchQuery" placeholder="Start typing...">
+                <button id="searchButton">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <select id="sortFilter">
+                    <option value="" disabled selected>Filter by</option>
+                    <option value="sentiment">Sort by Sentiment</option>
+                    <option value="subjectivity">Sort by Subjectivity</option>
+                </select>
+            </div>
+            <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                <span>Searching...</span>
+            </div>
+        </div>
+    </section>
+
+    <div id="results" class="results-container">
+        <!-- Results will be dynamically inserted here -->
+    </div>
+
+    <div id="infoPopup" class="info-popup">
+        <div class="popup-content">
+            <h3>How Scoring Works</h3>
+            <div class="popup-text">
+                <p><strong>Sentiment Score:</strong> Measures how negative or positive the content is (0% to 100%)</p>
+                <br>
+                <p><strong>Subjectivity Score:</strong> Measures how objective or subjective the content is (0% to 100%)</p>
+            </div>
+            <button class="close-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Powered by Human Sentiment Analysis</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
