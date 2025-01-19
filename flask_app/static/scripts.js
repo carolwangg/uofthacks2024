@@ -1,3 +1,8 @@
+async function getData(url){
+    const r = await fetch(url);
+    const j = await r.json();
+    return j;
+};
 document.addEventListener('DOMContentLoaded', function() {
 
     // Function to sort results
@@ -24,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentResults = []; // Store current results globally
 
     // Handle search button click
-    document.getElementById('searchButton').addEventListener('click', function(event) {
+    document.getElementById('searchButton').addEventListener('click', async function(event) {
         event.preventDefault();
         const query = document.getElementById('searchQuery').value.trim().toLowerCase();
         
@@ -40,34 +45,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
         //GET REQUEST 
         url = `../search?q=${query}`;
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                searchResults = data;
-                console.log(searchResults);
-                // Hide spinner
-                document.getElementById('loadingSpinner').style.display = 'none';
-                document.getElementById('results').style.display = 'block';
-                
-                // Filter results
-                currentResults = searchResults.filter(result => {
-                    return result.status && (
-                        result.title.toLowerCase().includes(query) ||
-                        result.snippet.toLowerCase().includes(query)
-                    );
-                });
+        const s = await getData(url);
+        //GET REQUEST
 
-                // Display with current sort option
-                const sortBy = document.getElementById('sortFilter').value;
-                displayResults(currentResults, sortBy, query);
-            })
-            .catch(error => {
-                console.error('Error fetching searchResults:', error);
-                // Hide spinner on error
-                document.getElementById('loadingSpinner').style.display = 'none';
-                document.getElementById('results').style.display = 'block';
-            });
-    });
+        document.getElementById('loadingSpinner').style.display = 'none';
+        document.getElementById('results').style.display = 'block';
+        
+        // Filter results
+        currentResults = s.filter(result => {
+            return result.status && (
+                result.title.toLowerCase().includes(query) ||
+                result.snippet.toLowerCase().includes(query)
+            );
+        });
+
+        // Display with current sort option
+        const sortBy = document.getElementById('sortFilter').value;
+        displayResults(currentResults, sortBy, query);
+        });
 
     // Handle sort filter changes
     document.getElementById('sortFilter').addEventListener('change', function(e) {
