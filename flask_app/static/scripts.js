@@ -1,3 +1,8 @@
+async function getData(url){
+    const r = await fetch(url);
+    const j = await r.json();
+    return j;
+};
 document.addEventListener('DOMContentLoaded', function() {
 
     // Sample search results data, replace with actual data later 
@@ -26,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentResults = []; // Store current results globally
 
     // Handle search button click
-    document.getElementById('searchButton').addEventListener('click', function(event) {
+    document.getElementById('searchButton').addEventListener('click', async function(event) {
         event.preventDefault();
         //get search query and filter results (trim and lower)
         const query = document.getElementById('searchQuery').value.trim().toLowerCase();
@@ -39,17 +44,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         //GET REQUEST 
         url = `../search?q=${query}`;
-        fetch(url)
-        .then(response => response.json())
-        .then(data =>{
-            searchResults = data
-            console.log(searchResults)
-        .catch(error => console.error('Error fetching searchResults:',error));
-        });
+        const s = await getData(url);
         //GET REQUEST
 
+
         // Filter results
-        currentResults = searchResults.filter(result => {
+        currentResults = s.filter(result => {
             return result.status && (
                 result.title.toLowerCase().includes(query) ||
                 result.snippet.toLowerCase().includes(query)
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="snippet">${result.snippet}</p>
                 <div class="scores-container">
                     <div class="sentiment-score ${sentimentClass}">
-                        <span class="score-label">Sentiment:</span>
+                        <span class="score-label">Positivity:</span>
                         <span class="score-value">${sentimentPercent}%</span>
                     </div>
                     <div class="subjectivity-score">

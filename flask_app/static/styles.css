@@ -9,8 +9,7 @@
 body {
     font-family: sans-serif;
     color: #333;
-    height: 100vh; /* Ensure the gradient covers the full height of the screen */
-
+    height: 100vh;
 }
 
 .navbar {
@@ -27,6 +26,15 @@ body {
     color: #333;
     font-size: 1.5rem;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
 }
 
 .nav-links {
@@ -65,6 +73,16 @@ body {
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.title-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
 }
 
 .hero-content p {
@@ -329,3 +347,180 @@ footer {
     border-color: #6366f1;
 }
 
+/* Info Button and Popup */
+.info-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+}
+
+.info-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e2f97 0%, #6615b1 100%);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+}
+
+.info-btn:hover {
+    transform: scale(1.1);
+}
+
+.info-popup {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    width: 300px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    padding: 20px;
+    position: relative;
+}
+
+.popup-content h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.popup-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #666;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+/* Show popup */
+.info-popup.show {
+    display: block !important;
+    animation: fadeIn 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.nav-right {
+    position: relative;
+}
+
+.how-it-works-btn {
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #2e2f97 0%, #6615b1 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease;
+}
+
+.how-it-works-btn:hover {
+    transform: scale(1.05);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 120%;
+    width: 300px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+}
+
+.dropdown-content.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.dropdown-content h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.dropdown-section {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.dropdown-section h4 {
+    color: #4F46E5;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dropdown-section p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 40px auto;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.loading-spinner i {
+    font-size: 2rem;
+}
