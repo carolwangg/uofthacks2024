@@ -53,10 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Filter results
         currentResults = s.filter(result => {
-            return result.status && (
-                result.title.toLowerCase().includes(query) ||
-                result.snippet.toLowerCase().includes(query)
-            );
+            return result.title.toLowerCase().includes(query) || result.snippet.toLowerCase().includes(query);
         });
 
         // Display with current sort option
