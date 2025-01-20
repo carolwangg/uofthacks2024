@@ -1,7 +1,9 @@
 # Feeltr for UoftHacks 12
 **Feeltr (Feel + Filter) - Feel the Search, Not Just the Clicks**  
 
-**Try it out:** [Feeltr] (https://feeltr.onrender.com/static/index.html)
+**Try it out:** [Feeltr](https://feeltr.onrender.com/static/index.html)
+
+![Feeltr.png](https://ibb.co/9qGTvB5)
 
 ## Description
 Instead of ranking results based on popularity, interactions, or SEO tactics, Feeltr prioritizes content that is the least subjective and least polarizing. This ensures that users are presented with reliable, emotionally neutral, and meaningful results.
