@@ -3,7 +3,7 @@
 
 **Try it out:** [Feeltr](https://feeltr.onrender.com/static/index.html)
 
-![Feeltr.png](https://ibb.co/9qGTvB5)
+![Feeltr.png](https://raw.githubusercontent.com/justintimejt/uofthacks/flask_app/static/images/Feeltr.png)
 
 ## Description
 Instead of ranking results based on popularity, interactions, or SEO tactics, Feeltr prioritizes content that is the least subjective and least polarizing. This ensures that users are presented with reliable, emotionally neutral, and meaningful results.
