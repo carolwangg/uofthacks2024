@@ -6,12 +6,8 @@ from textblob.sentiments import NaiveBayesAnalyzer
 from googleapiclient.discovery import build
 # import selenium.webdriver as webdriver
 
-# my_api_key = "AIzaSyBz53R95HLj1-EFBiDpTn1TD4xCjwDoixY"
-# my_api_key = "AIzaSyAYIJYkb2JhuZ6wwCPYZSJJZkmQNvbQ4OM" #The API_KEY you acquired
-
-# my_api_key = "AIzaSyARCsFukjY_JTBbiFsCG2NVjuBIXF56M-w"
-my_api_key ="AIzaSyAVQUFUt2fVXjjqqkNuT73I2qAK_CPt864"
-my_cse_id = "17b679dc5a5aa4441" #The search-engine-ID you created
+my_api_key = None
+my_cse_id = None #The search-engine-ID you created
 
 
 def google_search(search_term, api_key, cse_id, **kwargs):
